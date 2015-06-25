@@ -1,0 +1,9 @@
+{% if latest_fahrzeug_list %}
+    <ul>
+    {% for fahrzeug in latest_fahrzeug_list %}
+        <li><a href="/compare/{{ fahrzeug.id }}/">{{ fahrzeug.bezeichnung }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Keine Fahrzeuge verfuegbar.</p>
+{% endif %}

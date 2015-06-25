@@ -1,0 +1,168 @@
+{% if tank1 and tank2 %}
+
+<table>
+    <thead>
+    <tr>
+        <th>
+           +
+        </th>
+        <th>
+           <a href="/compare/{{ tank1.id }}/">{{ tank1.bezeichnung }}</a>
+        </th>
+        <th>
+              <a href="/compare/{{ tank2.id }}/">{{ tank2.bezeichnung }}</a>
+        </th>
+
+    </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tierstufe</td>
+            <td>{{ tank1.tier }}</td>
+            <td>{{ tank2.tier }}</td>
+        </tr>
+        <tr>
+            <td>Ruhmpunkte</td>
+            <td>{{ tank1.ruhm }}</td>
+            <td>{{ tank2.ruhm }}</td>
+        </tr>
+        <tr>
+            <td>Credits</td>
+            <td>{{ tank1.kosten }}</td>
+            <td>{{ tank2.kosten }}</td>
+        </tr>
+        <tr>
+            <td>Besatzung</td>
+            <td>{{ tank1.besatzung }}</td>
+            <td>{{ tank2.besatzung }}</td>
+        </tr>
+           <tr>
+            <td>Turmdrehgeschwindigkeit</td>
+            <td>{{ tank1.turmdrehen }}</td>
+            <td>{{ tank2.turmdrehen }}</td>
+        </tr>
+        <tr>
+            <td>Hitpoints</td>
+            <td>{{ tank1.hitpoints }}</td>
+            <td>{{ tank2.hitpoints }}</td>
+        </tr>
+        <tr>
+            <td>Topgeschwindigkeit</td>
+            <td>{{ tank1.topgeschwindigkeit }}</td>
+            <td>{{ tank2.topgeschwindigkeit }}</td>
+        </tr>
+        <tr>
+            <td>Beschleunigung</td>
+            <td>{{ tank1.beschleunigung }}</td>
+            <td>{{ tank2.beschleunigung }}</td>
+        </tr>
+        <tr>
+            <td>Sichtweite</td>
+            <td>{{ tank1.sichtweite }}</td>
+            <td>{{ tank2.sichtweite }}</td>
+        </tr>
+     <tr>
+            <td>Wanne Front</td>
+            <td>{{ tank1.wanneFront }}</td>
+            <td>{{ tank2.wanneFront }}</td>
+        </tr> <tr>
+            <td>Wanne Seite</td>
+            <td>{{ tank1.wanneSeite }}</td>
+            <td>{{ tank2.wanneSeite }}</td>
+        </tr>
+     <tr>
+            <td>Wanne Heck</td>
+            <td>{{ tank1.wanneHeck }}</td>
+            <td>{{ tank2.wanneHeck }}</td>
+        </tr>
+     <tr>
+            <td>Turm Front</td>
+            <td>{{ tank1.turmFront }}</td>
+            <td>{{ tank2.turmFront }}</td>
+        </tr>
+     <tr>
+            <td>Turm Seite</td>
+            <td>{{ tank1.turmSeite }}</td>
+            <td>{{ tank2.turmSeite }}</td>
+        </tr>
+        <tr>
+            <td>Turm Heck</td>
+            <td>{{ tank1.turmHeck }}</td>
+            <td>{{ tank2.turmHeck }}</td>
+        </tr>
+Bewaffnung
+      <tr>
+            <td>Bezeichnung</td>
+            <td>{{ waffe1.bezeichnung }}</td>
+            <td>{{ waffe2.bezeichnung }}</td>
+        </tr>
+       <tr>
+            <td>Schaden pro Minute</td>
+            <td>{{ waffe1.dpm }}</td>
+            <td>{{ waffe2.dpm }}</td>
+        </tr> <tr>
+            <td>Einzielzeit</td>
+            <td>{{ waffe1.aimtime }}</td>
+            <td>{{ waffe2.aimtime }}</td>
+        </tr>
+     <tr>
+            <td>Munitionsmenge</td>
+            <td>{{ waffe1.munition }}</td>
+            <td>{{ waffe2.munition }}</td>
+        </tr>
+    <tr>
+            <td>Genauigkeit</td>
+            <td>{{ waffe1.genauigkeit }}</td>
+            <td>{{ waffe2.genauigkeit }}</td>
+        </tr>
+
+        Munitionen
+        <tr>
+            <td>Munitionsarten</td>
+
+            <td>
+                <ul>
+
+                    {% for muni in waffe1.munitionen.all %}
+                        <li>{{ muni.bezeichnung }}
+                        <ul>
+                            <li>{{ muni.durchschlag }}</li>
+                            <li>{{ muni.schadenmin }}</li>
+                            <li>{{ muni.schadenmax }}</li>
+                        </ul></li>
+                     {% endfor %}
+
+                </ul>
+                </td>
+                <td>
+                <ul>
+
+                    {% for muni in waffe2.munitionen.all %}
+                        <li>{{ muni.bezeichnung }}
+                        <ul>
+                            <li>{{ muni.durchschlag }}</li>
+                            <li>{{ muni.schadenmin }}</li>
+                            <li>{{ muni.schadenmax }}</li>
+                        </ul></li>
+                     {% endfor %}
+
+                </ul>
+                </td>
+
+        </tr>
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+{% else %}
+    <p>Keine Fahrzeuge verfuegbar.</p>
+{% endif %}
